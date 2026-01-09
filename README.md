@@ -25,20 +25,29 @@ npm install latest-ph-address-thanks-to-anehan
 
 ### Import
 
+The package exports an object with functions. You can name the imported object anything you want:
+
 ```typescript
 // ES6 Import (Recommended)
+// 'phAddress' is just a variable name - you can use any name you prefer
 import phAddress from 'latest-ph-address-thanks-to-anehan';
+// OR: import address from 'latest-ph-address-thanks-to-anehan';
+// OR: import philippines from 'latest-ph-address-thanks-to-anehan';
 
-// ES6 Named Imports
+// ES6 Named Imports (Import specific functions)
 import { getRegions, getProvincesByRegion, getBarangaysByCityOrMun } from 'latest-ph-address-thanks-to-anehan';
 
 // CommonJS (Node.js)
 const phAddress = require('latest-ph-address-thanks-to-anehan');
+// OR: const address = require('latest-ph-address-thanks-to-anehan');
 ```
+
+**Note:** `phAddress` stands for "Philippine Address" - it's just a suggested variable name. You can use any name you prefer!
 
 ### Basic Usage
 
 ```typescript
+// Using default import (object with all functions)
 import phAddress from 'latest-ph-address-thanks-to-anehan';
 
 // Get all regions
