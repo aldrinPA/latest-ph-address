@@ -1,0 +1,11 @@
+scripts/
+*.csv
+test-folder/
+.gitignore
+.npmignore
+*.md
+!README.md
+# Exclude uncompressed JSON files (use .json.gz instead)
+data/*.json
+!data/*.json.gz
+

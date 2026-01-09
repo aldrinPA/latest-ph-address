@@ -1,0 +1,41 @@
+{
+  "name": "latest-ph-address-thanks-to-anehan",
+  "version": "1.0.0",
+  "description": "Latest Philippine addresses database with complete coverage of all Regions, Provinces, Cities, Municipalities, and Barangays. Perfect for address forms and location-based applications.",
+  "main": "index.js",
+  "scripts": {
+    "optimize": "node scripts/optimize-data.js",
+    "compress": "node scripts/compress-data.js",
+    "prepublishOnly": "npm run optimize && npm run compress",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aldrinPA/latest-ph-address.git"
+  },
+  "keywords": [
+    "philippines",
+    "ph-address",
+    "philippine-address",
+    "psgc",
+    "address",
+    "location",
+    "philippines-address",
+    "philippine-standard-geographic-code",
+    "dropdown",
+    "cascading-dropdown",
+    "region",
+    "province",
+    "city",
+    "municipality",
+    "barangay",
+    "ncr",
+    "huc"
+  ],
+  "author": "Anehan Tech Team by Aldrin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aldrinPA/latest-ph-address/issues"
+  },
+  "homepage": "https://github.com/aldrinPA/latest-ph-address#readme"
+}
