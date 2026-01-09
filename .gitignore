@@ -1,6 +1,9 @@
 node_modules/
 *.log
 .DS_Store
-data/
 *.csv
+
+# Exclude uncompressed JSON files (keep .gz files for npm package)
+data/*.json
+!data/*.json.gz
 
