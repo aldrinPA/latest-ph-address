@@ -8,4 +8,6 @@ test-folder/
 # Exclude uncompressed JSON files (use .json.gz instead)
 data/*.json
 !data/*.json.gz
+# Exclude package tarballs
+*.tgz
 
