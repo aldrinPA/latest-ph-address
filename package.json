@@ -1,8 +1,9 @@
 {
   "name": "latest-ph-address-thanks-to-anehan",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Latest Philippine addresses database with complete coverage of all Regions, Provinces, Cities, Municipalities, and Barangays. Perfect for address forms and location-based applications.",
   "main": "index.js",
+  "types": "index.d.ts",
   "scripts": {
     "optimize": "node scripts/optimize-data.js",
     "compress": "node scripts/compress-data.js",
