@@ -6,7 +6,7 @@
   "scripts": {
     "optimize": "node scripts/optimize-data.js",
     "compress": "node scripts/compress-data.js",
-    "prepublishOnly": "npm run optimize && npm run compress",
+    "prepublishOnly": "npm run compress",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

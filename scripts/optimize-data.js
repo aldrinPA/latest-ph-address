@@ -32,6 +32,13 @@ function optimizeDataFiles() {
   
   filesToOptimize.forEach(filename => {
     const filePath = path.join(dataDir, filename);
+    
+    // Skip if file doesn't exist (already optimized/deleted)
+    if (!fs.existsSync(filePath)) {
+      console.log(`Skipping ${filename} (file not found - already optimized or using compressed version)`);
+      return;
+    }
+    
     console.log(`Processing ${filename}...`);
     
     // Read original file

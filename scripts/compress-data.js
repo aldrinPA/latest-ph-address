@@ -16,6 +16,16 @@ function compressDataFiles() {
     const filePath = path.join(dataDir, filename);
     const compressedPath = filePath + '.gz';
     
+    // Skip if uncompressed file doesn't exist (already compressed or deleted)
+    if (!fs.existsSync(filePath)) {
+      if (fs.existsSync(compressedPath)) {
+        console.log(`Skipping ${filename} (already compressed: ${filename}.gz exists)`);
+      } else {
+        console.log(`⚠️  Warning: ${filename} not found and no compressed version exists`);
+      }
+      return;
+    }
+    
     console.log(`Compressing ${filename}...`);
     
     // Read JSON file
