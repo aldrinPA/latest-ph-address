@@ -5,9 +5,8 @@ test-folder/
 .npmignore
 *.md
 !README.md
-# Exclude uncompressed JSON files (use .json.gz instead)
-data/*.json
-!data/*.json.gz
+# Include both .json (for React Native/Expo) and .json.gz (for Node.js)
+# Both are needed for cross-platform compatibility
 # Exclude package tarballs
 *.tgz
 

@@ -45,8 +45,9 @@ function compressDataFiles() {
   });
   
   console.log('✅ Compression complete!');
-  console.log('\nNote: The .json.gz files will be used instead of .json files.');
-  console.log('Original .json files are kept for development but excluded from npm package.');
+  console.log('\nNote: Both .json and .json.gz files are included in the package:');
+  console.log('  - .json files: Required for React Native/Expo compatibility');
+  console.log('  - .json.gz files: Used by Node.js for smaller package size');
 }
 
 compressDataFiles();

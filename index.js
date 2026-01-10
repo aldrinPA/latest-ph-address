@@ -1,29 +1,9 @@
-const fs = require('fs');
-const zlib = require('zlib');
-const path = require('path');
-
-// Load and decompress data files
-function loadCompressedData(filename) {
-  const filePath = path.join(__dirname, 'data', filename);
-  
-  // Try compressed file first, fallback to uncompressed
-  try {
-    const compressedPath = filePath + '.gz';
-    if (fs.existsSync(compressedPath)) {
-      const compressed = fs.readFileSync(compressedPath);
-      const decompressed = zlib.gunzipSync(compressed);
-      return JSON.parse(decompressed.toString());
-    }
-  } catch (e) {
-    // Fallback to uncompressed if compression fails
-  }
-  
-  // Fallback to uncompressed JSON
-  return JSON.parse(fs.readFileSync(filePath, 'utf8'));
-}
-
-const byPsgcData = loadCompressedData('by-psgc.json');
-const byLevelData = loadCompressedData('by-level.json');
+// Load data files - compatible with both Node.js and React Native/Expo
+// Using require() works in both environments:
+// - Node.js: Reads JSON files from filesystem at runtime
+// - React Native/Expo: Bundlers (Metro/Webpack) bundle JSON at build time
+const byPsgcData = require('./data/by-psgc.json');
+const byLevelData = require('./data/by-level.json');
 
 /**
  * Get all regions
