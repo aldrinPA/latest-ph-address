@@ -54,5 +54,17 @@ export interface PhAddress {
 }
 
 declare const phAddress: PhAddress;
+
+// Default export (for: import phAddress from '...')
 export default phAddress;
+
+// Named exports (for: import { getRegions } from '...')
+export const getRegions: PhAddress['getRegions'];
+export const getProvincesByRegion: PhAddress['getProvincesByRegion'];
+export const getCitiesAndMunsByProvince: PhAddress['getCitiesAndMunsByProvince'];
+export const getBarangaysByCityOrMun: PhAddress['getBarangaysByCityOrMun'];
+export const getRegionByProvince: PhAddress['getRegionByProvince'];
+
+// Export types
+export type { AddressItem, PhAddress };
 

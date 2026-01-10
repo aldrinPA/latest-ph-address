@@ -12,7 +12,7 @@ Complete Philippine addresses database with 43,769+ addresses. Perfect for build
 - ✅ **HUC support** - Highly Urbanized Cities with geographic province mapping
 - ✅ **Zero dependencies** - Lightweight (~1.2 MB)
 - ✅ **Latest data** - 3Q 2025 PSGC data
-- ✅ **React Native/Expo compatible** - Works in Node.js, React, React Native, and Expo projects
+- ✅ **Universal compatibility** - Works in Node.js, browsers (React/Vue/Vite), React Native, and Expo projects
 
 All thanks to the [anehan.online](https://anehan.online) Tech Team! 🇵🇭
 
