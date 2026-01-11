@@ -96,10 +96,48 @@ function getCitiesAndMunsByProvince(provincePsgc, regionPsgc = null) {
 }
 
 /**
+ * Natural sort comparator for alphanumeric strings
+ * Handles numeric values within strings (e.g., "Barangay 2" before "Barangay 10")
+ * @param {string} a - First string
+ * @param {string} b - Second string
+ * @returns {number} Comparison result
+ */
+function naturalSort(a, b) {
+  // Split strings into parts (text and numbers)
+  const partsA = a.match(/(\d+|\D+)/g) || [];
+  const partsB = b.match(/(\d+|\D+)/g) || [];
+  
+  const maxLength = Math.max(partsA.length, partsB.length);
+  
+  for (let i = 0; i < maxLength; i++) {
+    const partA = partsA[i] || '';
+    const partB = partsB[i] || '';
+    
+    // If both parts are numbers, compare numerically
+    const numA = parseInt(partA, 10);
+    const numB = parseInt(partB, 10);
+    
+    if (!isNaN(numA) && !isNaN(numB)) {
+      if (numA !== numB) {
+        return numA - numB;
+      }
+    } else {
+      // Compare as strings (case-insensitive)
+      const comparison = partA.toLowerCase().localeCompare(partB.toLowerCase());
+      if (comparison !== 0) {
+        return comparison;
+      }
+    }
+  }
+  
+  return 0;
+}
+
+/**
  * Get all barangays located in selected city or municipality
  * Works for all cities and municipalities including HUCs (Manila, Baguio, etc.)
  * @param {string} cityMunPsgc - City/Municipality PSGC code
- * @returns {Array} Array of barangays (sorted A-Z)
+ * @returns {Array} Array of barangays (sorted naturally: A-Z with numeric order)
  */
 function getBarangaysByCityOrMun(cityMunPsgc) {
   // PSGC Revision 1: City/Municipality = first 7 digits
@@ -118,7 +156,7 @@ function getBarangaysByCityOrMun(cityMunPsgc) {
     );
   }
   
-  return barangays.sort((a, b) => a.name.localeCompare(b.name));
+  return barangays.sort((a, b) => naturalSort(a.name, b.name));
 }
 
 /**
